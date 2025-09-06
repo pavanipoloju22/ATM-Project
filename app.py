@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import atm_core
 
-app = Flask(__name__)   # ✅ must come before any @app.route
+app = Flask(__name__)
 
 @app.route("/")
 def index():
