@@ -1,13 +1,15 @@
 import pymysql
+import os
 
 def db_connect():
+    """Connect to the database using environment variables (Render-ready)."""
     try:
         return pymysql.connect(
-            host="localhost",
-            user="root",
-            password="123456",
-            database="atm_data",
-            port=3306
+            host=os.getenv("DB_HOST","dbhost.render.com"),
+            user=os.getenv("DB_USER","root"),
+            password=os.getenv("DB_PASS","123456"),
+            database=os.getenv("DB_NAME","atm_data"),
+            port=int(os.getenv("DB_PORT", 3306))
         )
     except Exception as e:
         print("Database connection failed:", e)
