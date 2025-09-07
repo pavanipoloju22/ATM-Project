@@ -3,7 +3,7 @@ import pymysql
 def db_connect():
     try:
         return pymysql.connect(
-            host="127.0.0.1",
+            host="localhost",
             user="root",
             password="123456",
             database="atm_data",
